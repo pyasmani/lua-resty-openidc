@@ -171,26 +171,26 @@ local function openidc_validate_id_token(opts, id_token, nonce)
     return false
   end
 
-  -- check audience (array or string)
-  if not id_token.aud then
-    log(ERROR, "no \"aud\" claim found in id_token")
-    return false
-  end
+  -- -- check audience (array or string)
+  -- if not id_token.aud then
+  --   log(ERROR, "no \"aud\" claim found in id_token")
+  --   return false
+  -- end
 
-  if (type(id_token.aud) == "table") then
-    for _, value in pairs(id_token.aud) do
-      if value == opts.client_id then
-        return true
-      end
-    end
-    log(ERROR, "no match found token audience array: client_id=", opts.client_id)
-    return false
-  elseif (type(id_token.aud) == "string") then
-    if id_token.aud ~= opts.client_id then
-      log(ERROR, "token audience does not match: id_token.aud=", id_token.aud, ", client_id=", opts.client_id)
-      return false
-    end
-  end
+  -- if (type(id_token.aud) == "table") then
+  --   for _, value in pairs(id_token.aud) do
+  --     if value == opts.client_id then
+  --       return true
+  --     end
+  --   end
+  --   log(ERROR, "no match found token audience array: client_id=", opts.client_id)
+  --   return false
+  -- elseif (type(id_token.aud) == "string") then
+  --   if id_token.aud ~= opts.client_id then
+  --     log(ERROR, "token audience does not match: id_token.aud=", id_token.aud, ", client_id=", opts.client_id)
+  --     return false
+  --   end
+  -- end
   return true
 end
 
