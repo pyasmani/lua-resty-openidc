@@ -2,7 +2,7 @@ package = "lua-resty-openidc"
 version = "1.7.5-1"
 source = {
     url = "git://github.com/pyasmani/lua-resty-openidc",
-    tag = "v1.7.5",
+    tag = "master",
     dir = "lua-resty-openidc"
 }
 description = {
